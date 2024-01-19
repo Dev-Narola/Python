@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@p^h%nolvvxteg-10%lhiq@477(0vho8fo(mtme*n3ft1m*cs9'
+SECRET_KEY = 'django-insecure-$7mb4$17(a6xt4z(6_#gyww_vg!6pttk*i6se@rk$!rddd@@3n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'check',
 ]
 
 MIDDLEWARE = [
@@ -73,10 +74,22 @@ WSGI_APPLICATION = 'testing.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'mongodb',
+        'CLIENT': {
+           'host': 'mongodb+srv://dev:dev@main.bjjpvzp.mongodb.net/?retryWrites=true&w=majority',
+           'username' : 'dev',
+           'password' : 'dev',
+        }
     }
 }
 
